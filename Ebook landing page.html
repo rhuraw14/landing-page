@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Nigerian Man's Performance Reset</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold-l:#E8C96A;--gold-d:#7A6128;
+  --bg:#08090D;--card:#12141C;--card2:#181B26;
+  --text:#EEE9E0;--muted:#8A8478;
+  --green:#1E8C5A;--red:#C0392B;
+  --border:rgba(201,168,76,0.16);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.2}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(8,9,13,0.9);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.brand{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+.nav-btn{background:var(--gold);color:#08090D;font-size:13px;font-weight:700;padding:9px 22px;border-radius:3px;text-decoration:none;transition:background .2s}
+.nav-btn:hover{background:var(--gold-l)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;background:radial-gradient(ellipse 65% 45% at 50% 0%,rgba(201,168,76,.07),transparent 70%)}
+.eyebrow{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:0.5px solid var(--gold-d);padding:5px 16px;border-radius:2px;margin-bottom:28px;opacity:0;animation:up .6s .1s forwards}
+.hero h1{font-size:clamp(42px,7vw,88px);font-weight:900;color:#fff;max-width:860px;margin-bottom:22px;opacity:0;animation:up .6s .3s forwards}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:var(--muted);max-width:520px;margin-bottom:40px;opacity:0;animation:up .6s .5s forwards}
+.hero-cta{opacity:0;animation:up .6s .7s forwards;display:flex;flex-direction:column;align-items:center;gap:12px}
+.btn{display:inline-block;background:var(--gold);color:#08090D;font-size:16px;font-weight:700;padding:18px 50px;border-radius:3px;text-decoration:none;transition:transform .15s,background .2s}
+.btn:hover{background:var(--gold-l);transform:translateY(-2px)}
+.micro{font-size:13px;color:var(--muted)}
+
+/* PROOF BAR */
+.bar{background:var(--card);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:18px 5%;display:flex;flex-wrap:wrap;justify-content:center;gap:32px}
+.bar-item{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.bar-item strong{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold)}
+
+/* SECTIONS */
+.s{padding:80px 5%}
+.inner{max-width:780px;margin:0 auto}
+.inner.wide{max-width:1060px}
+.label{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.s h2{font-size:clamp(28px,4vw,48px);color:#fff;margin-bottom:20px}
+.s h2 em{color:var(--gold);font-style:normal}
+.s p{color:var(--muted);margin-bottom:16px}
+.s p strong{color:var(--text)}
+.rule{width:44px;height:2px;background:var(--gold);margin-bottom:28px;opacity:.55}
+
+/* PAIN QUOTE */
+.quote{background:var(--card);border-left:2.5px solid var(--gold);border-radius:0 5px 5px 0;padding:28px 32px;margin:32px 0;font-size:17px;font-style:italic;color:var(--text);line-height:1.85}
+
+/* KILLERS */
+.killers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:28px 0}
+.kcard{background:var(--card);border:0.5px solid rgba(192,57,43,.25);border-top:2px solid var(--red);border-radius:5px;padding:20px}
+.kcard .n{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:rgba(192,57,43,.2);line-height:1;margin-bottom:8px}
+.kcard h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;font-family:'DM Sans',sans-serif}
+.kcard p{font-size:13px;color:var(--muted);margin:0}
+
+/* SYSTEM 3 */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
+@media(max-width:640px){.trio{grid-template-columns:1fr}}
+.trio-card{background:var(--card);border:0.5px solid var(--border);border-radius:5px;padding:24px;text-align:center}
+.trio-card .ico{font-size:24px;margin-bottom:12px}
+.trio-card h4{font-size:15px;color:var(--gold);margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600}
+.trio-card p{font-size:13px;color:var(--muted);margin:0}
+
+/* FOODS */
+.foods{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:24px 0}
+.food{background:var(--card);border:0.5px solid var(--border);border-radius:5px;padding:16px}
+.food-name{font-weight:600;color:var(--gold);font-size:14px;margin-bottom:4px}
+.food-why{font-size:12px;color:var(--muted)}
+
+/* PRODUCT */
+.product-wrap{background:radial-gradient(ellipse 55% 50% at 50% 50%,rgba(201,168,76,.05),transparent 80%),var(--card);border:0.5px solid var(--border);border-radius:8px;padding:48px 5%;text-align:center;margin:36px 0}
+.book{width:180px;border-radius:5px;box-shadow:0 24px 60px rgba(0,0,0,.65),0 0 30px rgba(201,168,76,.12);margin:0 auto 32px;display:block}
+.chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin:28px auto;max-width:760px;text-align:left}
+.ch{display:flex;gap:12px;align-items:flex-start;background:var(--card2);border:0.5px solid var(--border);border-radius:4px;padding:14px 16px}
+.chn{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:var(--gold-d);letter-spacing:.04em;min-width:26px;padding-top:2px}
+.cht{font-size:14px;font-weight:500;color:var(--text)}
+.chs{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* BONUSES */
+.bonuses-bg{background:var(--card);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
+.bcard{background:var(--card2);border:0.5px solid var(--border);border-radius:6px;padding:24px 28px;display:flex;gap:20px;align-items:flex-start;margin-bottom:12px}
+.bnum{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1;min-width:44px}
+.btitle{font-size:16px;color:#fff;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:600}
+.bdesc{font-size:14px;color:var(--muted);margin-bottom:10px}
+.bval{display:inline-block;font-size:11px;font-weight:600;color:var(--gold);background:rgba(201,168,76,.09);border:0.5px solid var(--gold-d);padding:3px 10px;border-radius:2px}
+
+/* VALUE TABLE */
+.vtable{width:100%;border-collapse:collapse;margin:28px 0}
+.vtable tr{border-bottom:0.5px solid var(--border)}
+.vtable td{padding:12px 0;font-size:15px;color:var(--muted)}
+.vtable td:last-child{text-align:right}
+.vtable .tot td{color:#fff;font-weight:600;font-size:16px;padding-top:18px}
+.vtable .price td{color:var(--gold);font-family:'Playfair Display',serif;font-size:26px;font-weight:700}
+
+/* GUARANTEE */
+.gblock{background:var(--card);border:0.5px solid rgba(30,140,90,.35);border-radius:6px;padding:32px;display:flex;gap:22px;align-items:flex-start;margin:36px 0}
+.gbadge{flex-shrink:0;width:64px;height:64px;border-radius:50%;background:rgba(30,140,90,.1);border:1.5px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:26px}
+.gblock h4{font-size:18px;color:var(--green);margin-bottom:8px;font-family:'DM Sans',sans-serif;font-weight:600}
+.gblock p{font-size:14px;color:var(--muted);margin:0}
+
+/* TESTIMONIALS */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:32px 0}
+.tcard{background:var(--card);border:0.5px solid var(--border);border-radius:6px;padding:24px}
+.stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:14px}
+.tcard p{font-size:14px;color:var(--text);font-style:italic;margin-bottom:16px}
+.tauthor strong{display:block;font-size:13px;color:var(--gold)}
+.tauthor{font-size:12px;color:var(--muted)}
+
+/* URGENCY */
+.urgency{background:rgba(201,168,76,.06);border-top:0.5px solid var(--gold-d);border-bottom:0.5px solid var(--gold-d);padding:18px 5%;text-align:center;font-size:15px}
+.urgency strong{color:var(--gold)}
+
+/* FAQ */
+.faq{border-bottom:0.5px solid var(--border);padding:20px 0}
+.faq h4{font-size:16px;font-weight:600;color:#fff;margin-bottom:8px;font-family:'DM Sans',sans-serif}
+.faq p{font-size:14px;color:var(--muted);margin:0}
+
+/* FINAL CTA */
+.fcta{background:radial-gradient(ellipse 55% 55% at 50% 100%,rgba(201,168,76,.07),transparent 70%),var(--bg);padding:100px 5%;text-align:center}
+.price-orig{font-size:16px;color:var(--muted);text-decoration:line-through;margin-bottom:6px}
+.price-big{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,80px);font-weight:900;color:var(--gold);line-height:1}
+.price-note{font-size:13px;color:var(--muted);margin:10px 0 32px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:18px;max-width:440px;margin-left:auto;margin-right:auto}
+
+footer{background:var(--card);border-top:0.5px solid var(--border);padding:28px 5%;text-align:center;font-size:12px;color:var(--muted)}
+
+/* ANIMATIONS */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fi{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fi.v{opacity:1;transform:translateY(0)}
+
+/* ── TABLET ── */
+@media(max-width:768px){
+  .s{padding:64px 5%}
+  .hero{padding:100px 5% 60px}
+  .fcta{padding:80px 5%}
+}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  /* Nav */
+  .brand{font-size:12px}
+  .nav-btn{padding:8px 14px;font-size:12px}
+
+  /* Hero */
+  .hero{padding:90px 5% 60px}
+  .hero-sub{font-size:16px}
+  .micro{font-size:12px;line-height:1.6}
+  .micro br{display:block}
+
+  /* Sections */
+  .s{padding:52px 5%}
+  .s h2{font-size:clamp(26px,7vw,38px)}
+  .fcta{padding:64px 5%}
+
+  /* Proof bar */
+  .bar{gap:20px;padding:16px 5%}
+  .bar-item{font-size:12px}
+
+  /* CTA buttons — full width */
+  .btn{display:block;width:100%;text-align:center;padding:18px 24px;font-size:16px}
+
+  /* Killers — single column on small screens */
+  .killers{grid-template-columns:1fr}
+
+  /* Trio — already handled at 640px */
+
+  /* Value table — tighten text */
+  .vtable td{font-size:13px;padding:10px 0}
+  .vtable .price td{font-size:20px}
+
+  /* Bonus cards */
+  .bcard{flex-direction:column;gap:10px}
+  .bnum{font-size:28px;min-width:auto}
+
+  /* Guarantee */
+  .gblock{flex-direction:column;padding:24px}
+  .gbadge{width:52px;height:52px;font-size:22px}
+
+  /* Chapters */
+  .chapters{grid-template-columns:1fr}
+
+  /* Testimonials */
+  .tgrid{grid-template-columns:1fr}
+
+  /* Price display */
+  .price-big{font-size:clamp(44px,12vw,64px)}
+
+  /* Urgency bar */
+  .urgency{font-size:14px;line-height:1.6}
+
+  /* Product wrap */
+  .product-wrap{padding:32px 5%}
+  .book{width:150px}
+
+  /* Quote block */
+  .quote{padding:20px 22px;font-size:16px}
+
+  /* Foods */
+  .foods{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">Performance Reset</span>
+  <a href="https://selar.com/q47226n272" class="nav-btn">Get Access</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <span class="eyebrow">Private Guide for Nigerian Men</span>
+  <h1>Reclaim Your <span>Strength,<br>Stamina &amp; Confidence</span><br>Naturally</h1>
+  <p class="hero-sub">A complete 30-day reset using local Nigerian foods, simple daily habits, and proven mental tools. No gym. No expensive supplements.</p>
+  <div class="hero-cta">
+    <a href="https://selar.com/q47226n272" class="btn">Yes — I Want My Reset &rarr;</a>
+    <p class="micro">100% private &nbsp;·&nbsp; Instant access</p>
+  </div>
+</section>
+
+<!-- ── PROOF BAR ── -->
+<div class="bar">
+  <div class="bar-item"><strong>8</strong> Chapters</div>
+  <div class="bar-item"><strong>4</strong> Free Bonuses</div>
+  <div class="bar-item"><strong>30-Day</strong> Reset Plan</div>
+  <div class="bar-item"><strong>100%</strong> Natural</div>
+</div>
+
+<!-- ── PAIN ── -->
+<section class="s">
+  <div class="inner fi">
+    <p class="label">If This Sounds Like You</p>
+    <h2>You Know Something<br>Needs to <em>Change.</em></h2>
+    <div class="rule"></div>
+    <div class="quote">"It's late. The house is quiet. You're staring at the ceiling, replaying a moment you wish went differently. Your energy isn't steady. Your confidence isn't automatic. And you haven't told anyone."</div>
+    <p>You're not broken. You're not weak. Your body is simply reacting to how modern Nigerian life quietly chips away at your strength — stress, poor sleep, alcohol, bad food, no movement.</p>
+    <p><strong>All of it is fixable. And this guide shows you how.</strong></p>
+  </div>
+</section>
+
+<!-- ── KILLERS ── -->
+<section class="s" style="padding-top:0">
+  <div class="inner wide fi">
+    <p class="label">The Real Cause</p>
+    <h2>5 Things Working<br><em>Against You Daily</em></h2>
+    <div class="rule"></div>
+    <div class="killers">
+      <div class="kcard"><div class="n">01</div><h4>Poor Sleep</h4><p>NEPA, heat, late nights. Testosterone is produced during deep sleep. When sleep suffers — everything suffers.</p></div>
+      <div class="kcard"><div class="n">02</div><h4>Alcohol</h4><p>Beer and ogogoro suppress testosterone for up to 24hrs per session and build belly fat that converts it to estrogen.</p></div>
+      <div class="kcard"><div class="n">03</div><h4>Chronic Stress</h4><p>Rent, business, family pressure. Cortisol — your stress hormone — is the direct enemy of testosterone.</p></div>
+      <div class="kcard"><div class="n">04</div><h4>Sitting All Day</h4><p>8+ hours at a desk or behind a wheel restricts blood flow to the areas that matter most.</p></div>
+      <div class="kcard"><div class="n">05</div><h4>Wrong Daily Foods</h4><p>Filling your stomach without fuelling your system. Missing zinc, arginine, and B-vitamins daily adds up fast.</p></div>
+    </div>
+    <p style="text-align:center"><strong>None of this is your fault. Every single one is within your control.</strong></p>
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section class="s" style="background:var(--card);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)">
+  <div class="inner fi">
+    <p class="label">The Science, Simply</p>
+    <h2>Three Systems.<br>All <em>Fixable.</em></h2>
+    <div class="rule"></div>
+    <div class="trio">
+      <div class="trio-card"><div class="ico">🩸</div><h4>Blood Flow</h4><p>The fuel. Restricted flow = reduced performance. Food and movement restore this directly.</p></div>
+      <div class="trio-card"><div class="ico">⚡</div><h4>Testosterone</h4><p>The engine oil. Drained by stress, alcohol, and poor sleep. Rebuilt naturally with the right habits.</p></div>
+      <div class="trio-card"><div class="ico">🧠</div><h4>Mind Signals</h4><p>Anxiety short-circuits everything. One bad experience creates the next. Breaking the cycle changes everything.</p></div>
+    </div>
+
+    <h3 style="font-size:22px;color:#fff;margin:40px 0 16px">The Foods Already in<br><span style="color:var(--gold)">Your Local Market</span></h3>
+    <div class="foods">
+      <div class="food"><div class="food-name">Tiger Nuts (Aya)</div><div class="food-why">Zinc + arginine — rebuilds testosterone and blood flow</div></div>
+      <div class="food"><div class="food-name">Watermelon + Seeds</div><div class="food-why">L-citrulline widens blood vessels naturally</div></div>
+      <div class="food"><div class="food-name">Fresh Ginger</div><div class="food-why">Clinical study: 17% testosterone increase with regular use</div></div>
+      <div class="food"><div class="food-name">Bitter Leaf</div><div class="food-why">Reduces cortisol — the stress hormone killing performance</div></div>
+      <div class="food"><div class="food-name">Eggs (2–3 daily)</div><div class="food-why">Your body uses cholesterol to produce testosterone</div></div>
+      <div class="food"><div class="food-name">Garlic</div><div class="food-why">Reduces cortisol, improves blood flow, protects testosterone</div></div>
+    </div>
+    <p style="text-align:center"><strong>You don't have a supplement problem. You have an information problem.</strong></p>
+  </div>
+</section>
+
+<!-- ── PRODUCT ── -->
+<section class="s">
+  <div class="inner fi">
+    <p class="label" style="text-align:center">The Complete System</p>
+    <h2 style="text-align:center">The Nigerian Man's<br><em>Performance Reset</em></h2>
+    <div class="rule" style="margin:0 auto 28px"></div>
+    <div class="product-wrap">
+      <p style="color:var(--muted);max-width:500px;margin:0 auto 28px;font-size:16px">8 chapters. 30 days. One complete system built for Nigerian men — natural, private, and practical.</p>
+      <div class="chapters">
+        <div class="ch"><span class="chn">CH.1</span><div><p class="cht">Why Your Body Is Not Broken</p><p class="chs">The biology — and why it's fully reversible</p></div></div>
+        <div class="ch"><span class="chn">CH.2</span><div><p class="cht">The Food Fix</p><p class="chs">Nigerian foods that rebuild strength and drive</p></div></div>
+        <div class="ch"><span class="chn">CH.3</span><div><p class="cht">The 15-Minute Strength System</p><p class="chs">Daily stamina method — no gym needed</p></div></div>
+        <div class="ch"><span class="chn">CH.4</span><div><p class="cht">The Mind Trap</p><p class="chs">Break the anxiety cycle that ruins performance</p></div></div>
+        <div class="ch"><span class="chn">CH.5</span><div><p class="cht">The 5 Silent Killers</p><p class="chs">Daily habits most men never suspect</p></div></div>
+        <div class="ch"><span class="chn">CH.6</span><div><p class="cht">Nature's Pharmacy</p><p class="chs">What works — and which roadside mixtures are scams</p></div></div>
+        <div class="ch"><span class="chn">CH.7</span><div><p class="cht">The Conversation Guide</p><p class="chs">Talk to your partner without losing respect</p></div></div>
+        <div class="ch"><span class="chn">CH.8</span><div><p class="cht">The 30-Day Reset Plan</p><p class="chs">Day-by-day system — structured and trackable</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BONUSES ── -->
+<section class="s bonuses-bg">
+  <div class="inner fi">
+    <p class="label">Also Included Free</p>
+    <h2>4 Bonuses That Make<br>The Guide <em>Actually Work</em></h2>
+    <div class="rule"></div>
+    <div class="bcard"><div class="bnum">01</div><div><p class="btitle">Nigerian Performance Food Protocol</p><p class="bdesc">Printable one-page cheat sheet — what to eat, how much, how often. For Nigerian markets at Nigerian prices. Stick it on your fridge.</p><span class="bval">Valued at ₦2,000</span></div></div>
+    <div class="bcard"><div class="bnum">02</div><div><p class="btitle">30-Day Reset Tracker</p><p class="bdesc">Daily tick-off sheet with weekly check-ins. Track energy, sleep, and confidence from Day 1 to Day 30. Visibility creates momentum.</p><span class="bval">Valued at ₦2,000</span></div></div>
+    <div class="bcard"><div class="bnum">03</div><div><p class="btitle">The Conversation Guide</p><p class="bdesc">Word-for-word scripts for talking to your partner — what to say, what not to say, and how to handle a difficult reaction with confidence.</p><span class="bval">Valued at ₦2,000</span></div></div>
+    <div class="bcard"><div class="bnum">04</div><div><p class="btitle">In-the-Moment Anxiety Techniques</p><p class="bdesc">Four private, real-time techniques — including the 4-7-8 breathing method and a 10-second mental reset. No one will know you're using them.</p><span class="bval">Valued at ₦4,000</span></div></div>
+  </div>
+</section>
+
+<!-- ── ORDER ── -->
+<section class="s" id="order">
+  <div class="inner fi">
+    <p class="label">Everything You Receive Today</p>
+    <h2>Total Value: <em>₦20,000</em><br>Your Price Today</h2>
+    <div class="rule"></div>
+    <table class="vtable">
+      <tr><td>The Nigerian Man's Performance Reset</td><td>₦10,000</td></tr>
+      <tr><td>Bonus 1: Food Protocol</td><td>₦2,000</td></tr>
+      <tr><td>Bonus 2: 30-Day Tracker</td><td>₦2,000</td></tr>
+      <tr><td>Bonus 3: Conversation Guide</td><td>₦2,000</td></tr>
+      <tr><td>Bonus 4: Anxiety Techniques</td><td>₦4,000</td></tr>
+      <tr class="tot"><td>Total Value</td><td>₦20,000</td></tr>
+      <tr class="price"><td>Your Price Today</td><td>₦5,000</td></tr>
+    </table>
+
+    
+    <div style="text-align:center">
+      <a href="https://selar.com/q47226n272" class="btn" style="font-size:17px;padding:20px 56px">Get Instant Access Now &rarr;</a>
+      <p class="disclaimer">Instant digital delivery · 100% private · Secure payment</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="s" style="padding-top:0">
+  <div class="inner wide fi">
+    <p class="label" style="text-align:center">What Nigerian Men Are Saying</p>
+    <h2 style="text-align:center">Real Men. <em>Real Results.</em></h2>
+    <div class="rule" style="margin:0 auto 28px"></div>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars">★★★★★</div><p>"I got this book from a whatsapp group. I tried this for 3 weeks. Sleep improved in the first week. By week 3 I felt like myself again. I only wish I'd found this sooner."</p><div class="tauthor"><strong>Emeka </strong></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>"I already had tiger nuts at home. I just didn't know what they were doing for me. Simple changes, real difference."</p><div class="tauthor"><strong>Tunde </strong></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p>"The conversation guide alone was worth it. I finally talked to my wife and she was more understanding than I expected."</p><div class="tauthor"><strong>Samson</strong></div></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);text-align:center">*Individual results may vary.</p>
+  </div>
+</section>
+
+<!-- ── URGENCY ── -->
+<div class="urgency">⚡ &nbsp;<strong>Every week you wait is another week nothing changes.</strong> &nbsp;The men who get results decide today — not tomorrow.</div>
+
+<!-- ── FAQ ── -->
+<section class="s" style="background:var(--card);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)">
+  <div class="inner fi">
+    <p class="label">Quick Questions</p>
+    <h2>Before You Decide</h2>
+    <div class="rule"></div>
+    <div class="faq"><h4>Is this 100% private?</h4><p>Completely. Digital delivery only. No physical package. No one else needs to know.</p></div>
+    <div class="faq"><h4>Do I need to buy supplements?</h4><p>No. Everything in this guide is available in any Nigerian market for under ₦2,000.</p></div>
+    <div class="faq"><h4>How quickly will I see results?</h4><p>Most men notice improved energy and sleep within 7–10 days. Significant changes in strength and confidence appear by weeks 3–4.</p></div>
+    <div class="faq"><h4>Is this a replacement for seeing a doctor?</h4><p>No. This guide is for informational purposes. For persistent health concerns, always consult a qualified medical professional.</p></div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="fcta fi">
+  <p class="label">One Decision Away</p>
+  <h2 style="font-size:clamp(30px,5vw,52px)">You Already Know<br>Something Needs to <em>Change.</em></h2>
+  <div class="price-orig">Total Value: ₦20,000</div>
+  <div class="price-big">₦5,000</div>
+  <p class="price-note">One-time payment &nbsp;·&nbsp; Instant access &nbsp;·&nbsp; All 4 bonuses included</p>
+  <a href="https://selar.com/q47226n272" class="btn" style="font-size:17px;padding:20px 56px">Start My Reset Today &rarr;</a>
+  <p class="disclaimer">100% private &nbsp;·&nbsp; Secure checkout</p>
+</section>
+
+<footer>
+  <p style="margin-bottom:8px">The Nigerian Man's Performance Reset &nbsp;·&nbsp; Private &amp; Confidential</p>
+  <p>This guide is for informational purposes only. Always consult a qualified medical professional for persistent health concerns.</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') });
+}, {threshold: 0.08});
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
